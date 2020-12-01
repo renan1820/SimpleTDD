@@ -2,8 +2,7 @@ package com.git.renan.simpletdd
 
 import androidx.test.core.app.ActivityScenario
 import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.action.ViewActions.click
-import androidx.test.espresso.action.ViewActions.typeText
+import androidx.test.espresso.action.ViewActions.*
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.rules.ActivityScenarioRule
@@ -39,7 +38,8 @@ class ExampleInstrumentedTest {
     fun useEditText(){
         onView(withId(R.id.edit_user_name)).perform(typeText("Renan"))
         onView(withId(R.id.edit_user_surname)).perform(typeText("Castro"))
-        onView(withId(R.id.edit_user_age)).perform(typeText("25"))
+        onView(withId(R.id.edit_user_age)).perform(typeText("25"), closeSoftKeyboard())
+        onView(withId(R.id.button_ok)).perform(click())
     }
 
 }
